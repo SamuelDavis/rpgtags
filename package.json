@@ -1,0 +1,17 @@
+{
+  "name": "dwapp",
+  "version": "0.1.0",
+  "author": "Samuel Davis <samueljakdavis@gmail.com>",
+  "dependencies": {
+    "lodash": "^4.17.2"
+  },
+  "preferGlobal": false,
+  "private": true,
+  "devDependencies": {
+    "babel-loader": "^6.2.9",
+    "webpack": "^1.14.0"
+  },
+  "scripts": {
+    "watch": "./node_modules/.bin/webpack --watch"
+  }
+}
