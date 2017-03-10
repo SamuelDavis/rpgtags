@@ -157,6 +157,72 @@ window.moves = (function (stats) {
     }
   };
 
+  moves.game_master = {
+    reveal_an_unwelcome_truth: build_move({
+      name: "Reveal an Unwelcome Truth"
+    }),
+    show_signs_of_an_approaching_threat: build_move({
+      name: "Show Signs of an Approaching Threat"
+    }),
+    deal_damage: build_move({
+      name: "Deal Damage"
+    }),
+    use_up_their_resources: build_move({
+      name: "Use Up Their Resources"
+    }),
+    turn_their_move_back_on_them: build_move({
+      name: "Turn Their Move Back On Them"
+    }),
+    separate_them: build_move({
+      name: "Separate Them"
+    }),
+    give_an_opportunity_that_fits_a_class_abilities: build_move({
+      name: "Give an Opportunity that Fits a Class' Abilities"
+    }),
+    show_a_downside_to_their_class_race_or_equipment: build_move({
+      name: "Show a Downside to their Class, Race, or Equipment"
+    }),
+    offer_an_opportunity_with_a_cost: build_move({
+      name: "Offer an Opportunity With a Cost"
+    }),
+    offer_an_opportunity_without_a_cost: build_move({
+      name: "Offer an Opportunity Without a Cost"
+    }),
+    put_someone_in_a_spot: build_move({
+      name: "Put Someone in a Spot"
+    }),
+    tell_them_the_requirements_or_consequences_and_ask: build_move({
+      name: "Tell Them the Requirements or Consequences and Ask"
+    })
+  };
+
+  moves.dungeon = {
+    change_the_environment: build_move({
+      name: "Change the Environment"
+    }),
+    point_to_a_looming_threat: build_move({
+      name: "Point to a Looming Threat"
+    }),
+    introduce_a_new_faction: build_move({
+      name: "Introduce a New Faction"
+    }),
+    introduce_a_new_creature: build_move({
+      name: "Introduce a New Creature"
+    }),
+    use_an_existing_threat: build_move({
+      name: "Use an Existing Threat"
+    }),
+    make_them_backtrack: build_move({
+      name: "Make them Backtrack"
+    }),
+    present_riches_at_a_price: build_move({
+      name: "Present Riches at a Price"
+    }),
+    present_a_challenge: build_move({
+      name: "Present a Challenge"
+    })
+  };
+
   return moves;
 
   function build_move({name = "Required", description, condition, stat, results = {}}) {

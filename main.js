@@ -25,12 +25,12 @@ console.log({
   character,
   description: []
     .concat(reduce_prop("description", character))
-    .concat(reduce_prop("description", character.gear)),
+    .concat(reduce_prop("description", character.gear, character)),
   gear: reduce_prop("name", character.gear),
   moves: reduce_prop("moves", character).merge(),
   load: []
     .concat(reduce_prop(stats.load, character))
-    .concat(reduce_prop(stats.load, character.gear))
+    .concat(reduce_prop(stats.load, character.gear, character))
 });
 
 console.log("I am the Law -- " + make_move(

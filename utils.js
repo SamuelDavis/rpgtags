@@ -20,8 +20,9 @@ function reduce_prop(prop, source, original = undefined) {
   original = original || source;
 
   if (source instanceof Array) {
-    return source.reduce((acc, source) =>
-      acc.concat(reduce_prop(prop, source, original)), []);
+    return source.reduce((acc, item) => {
+      return acc.concat(reduce_prop(prop, item, original));
+    }, []);
   }
 
   return [source[prop]]
