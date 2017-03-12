@@ -1,45 +1,37 @@
-character = {
-  name: "Osing",
-  level: 1,
-  description: "{name} is fey in appearance. {posessive.ucword} hair is short and copper-colored. {pronoun.ucword} has brown eyes. {name} is a pack-rat, and carries a satchel of random junk.",
-  moves: Object.assign(
-    moves.basic,
-    moves.special
-  ),
-  gear: [
-    tags.armor.scale_mail,
-    tags.weapons.flail,
-    {
-      name: "Junk",
-      [stats.load]: 2
-    }
+tags["tags.characters.bueno"] = {
+  id: "tags.characters.bueno",
+  name: "Bueno the Barbarian",
+  description: "{name} is pretty great.",
+  equipment: [
+    "tags.item_list.weapons.battle_axe"
+  ],
+  inventory: [],
+  moves: [
+    "tags.move_list.basic"
+  ],
+  effects: [
+    "Is pretty great."
   ],
   tags: [
-    tags.classes.paladin,
-    tags.races.dwarf,
-    tags.sexes.male
+    "tags.classes.barbarian"
   ]
 };
 
 console.log({
-  character,
-  description: []
-    .concat(reduce_prop("description", character))
-    .concat(reduce_prop("description", character.gear, character)),
-  gear: reduce_prop("name", character.gear),
-  moves: reduce_prop("moves", character).merge(),
-  load: []
-    .concat(reduce_prop(stats.load, character))
-    .concat(reduce_prop(stats.load, character.gear, character))
+  description: reduce_prop(
+    "description",
+    [tags["tags.characters.bueno"], tags["tags.characters.bueno"].equipment]
+  ).clean().join(" "),
+  effects: reduce_prop(
+    "effects",
+    [tags["tags.characters.bueno"], tags["tags.characters.bueno"].equipment]
+  ).clean().flatten().join(" "),
+  moves: reduce_prop(
+    "moves",
+    tags["tags.characters.bueno"]
+  ).clean().flatten().map(move => move.name).join("; "),
+  weight: reduce_prop(
+    "weight",
+    [tags["tags.characters.bueno"], tags["tags.characters.bueno"].equipment]
+  ).clean().sum()
 });
-
-console.log("I am the Law -- " + make_move(
-    moves.classes.paladin.basic.i_am_the_law,
-    character
-  ));
-
-console.log("Divine Favor -- " + make_move(
-    moves.classes.paladin.advanced.divine_favor,
-    character
-  ));
-
